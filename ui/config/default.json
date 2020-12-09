@@ -1,8 +1,0 @@
-{
-  "AUTH" : {
-      "API_BASE_URL" : "https://localhost:9090",
-      "OAUTH2_REDIRECT_URI": "http://localhost:3000/oauth2/redirect",
-      "GOOGLE_AUTH_URL" :  "/oauth2/authorize/google?redirect_uri=" ,
-      "FACEBOOK_AUTH_URL" : "/oauth2/authorize/facebook?redirect_uri="
-  }
-}
