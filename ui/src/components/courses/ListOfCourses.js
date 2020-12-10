@@ -24,8 +24,8 @@ export const ListOfCourse = () => {
     }
   })
 
-  const handleDelete = (course) => {
-    deleteCourse(course).then(res => {
+  const handleDelete = (id) => {
+    deleteCourse(id).then(res => {
         setLoadingRequired(true)
         alert.show('Course deleted')
     })
@@ -34,7 +34,7 @@ export const ListOfCourse = () => {
   const courseList = courses.map(course => (
     <tr>
       <td>
-        <Button variant="danger" type="button" onClick={() => handleDelete(course)}>
+        <Button variant="danger" type="button" onClick={() => handleDelete(course.id)}>
           Delete
         </Button>
       </td>

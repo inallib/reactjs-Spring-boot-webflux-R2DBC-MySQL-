@@ -19,6 +19,7 @@ public class CourseController {
     private CourseRepository courseRepository;
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     private Mono<Course> saveCourse(@RequestBody @Valid Course course) {
         return courseRepository.save(course);
     }
@@ -28,9 +29,10 @@ public class CourseController {
         return courseRepository.findAll();
     }
 
-    @DeleteMapping
-    private Mono<Void> deleteCourse(@RequestBody Course course) {
-        return courseRepository.deleteById(course.getId());
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    private Mono<Void> deleteCourse(@PathVariable Integer id) {
+        return courseRepository.deleteById(id);
     }
 
     @ExceptionHandler

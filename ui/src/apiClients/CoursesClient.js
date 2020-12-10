@@ -8,10 +8,9 @@ export function fetchAllCourses() {
   });
 }
 
-export function deleteCourse(course) {
+export function deleteCourse(id) {
   return request({
-    url: API_BASE_URL + "/courses",
+    url: API_BASE_URL + "/courses/"+id,
     method: 'DELETE',
-    body: JSON.stringify(course)
   });
 }
