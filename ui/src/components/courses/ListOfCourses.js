@@ -13,8 +13,12 @@ export const ListOfCourse = () => {
   const alert = useAlert()
   const fetchCourses = () => {
     fetchAllCourses().then(data => {
+      if (data.error)
+        alert.show('Course could not be loded!')
+      else {
       setLoadingRequired(false)
       setCourses(data)
+      }
     })
   }
 
@@ -38,7 +42,7 @@ export const ListOfCourse = () => {
           Delete
         </Button>
       </td>
-      <td  colSpan="4"><Link to={{pathname: "/manage", course: course}} >{course.title}</Link></td>
+      <td  colSpan="4"><Link id={course.title} to={{pathname: "/manage", course: course}} >{course.title}</Link></td>
       <td>{course.authorId}</td>
       <td>{course.category}</td>
     </tr>

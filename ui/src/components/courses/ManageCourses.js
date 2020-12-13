@@ -20,9 +20,13 @@ export const ManageCourses = (props) => {
   function handleSubmit() {
     const course = Object.assign({}, {id, title, authorId, category})
     saveCourse(course).then(data => {
-      alert.show('Course saved')
-      setTitle("")
-      setCategory("")
+      if (data.error)
+        alert.show('Course could not be saved!')
+      else {
+        alert.show('Course saved')
+        setTitle("")
+        setCategory("")
+      }
     })
   }
 
@@ -55,7 +59,10 @@ export const ManageCourses = (props) => {
   function initialLoad() {
     if (authors.length < 1) {
       fetchAuthors().then(data => {
-        setAuthors(data)
+        if (data.error)
+          alert.show('Author names could not be loaded!')
+        else
+          setAuthors(data)
       })
     }
   }
@@ -69,9 +76,9 @@ export const ManageCourses = (props) => {
       setLoadedForEdit(false)
     }
   }
-  const authorNames = authors.map(author => (
+  const authorNames = authors? authors.map(author => (
     <option>{author.name}</option>
-  ));
+  )): [];
 
   return (
     <Fragment>
@@ -85,6 +92,7 @@ export const ManageCourses = (props) => {
           <Form.Label>Author</Form.Label>
           <Form.Control as="select" value={authorName} onChange={e => setAuthorId(getAuthorID(e.target.value))} >
             <option>Select author</option>
+
             {authorNames}
           </Form.Control>
         </Form.Group>
@@ -93,12 +101,12 @@ export const ManageCourses = (props) => {
           <Form.Control required type="text" placeholder="Enter Category" value={category} onChange={e => setCategory(e.target.value)} />
         </Form.Group>
         <hr/>
-        <Button variant="primary" type="button" onClick={handleSubmit}>
+        <Button id="save" variant="primary" type="button" onClick={handleSubmit}>
           Save
         </Button>
         &nbsp;&nbsp;
         <Link to="/courses">
-          <Button variant="success">Go to course list</Button>
+          <Button id="courseList" variant="success">Go to course list</Button>
         </Link>
       </Form>
     </Fragment>

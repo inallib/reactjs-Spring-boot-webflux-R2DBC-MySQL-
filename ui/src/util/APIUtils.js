@@ -15,6 +15,7 @@ export const request = (options) => {
             return json
           })
         )
-        .catch(function () {
+        .catch( function () {
+          return ({"error":true})
         })
 }

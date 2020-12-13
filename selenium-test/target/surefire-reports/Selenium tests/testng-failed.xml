@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" verbose="0" name="Failed suite [Selenium tests]" parallel="tests">
+  <test thread-count="2" verbose="0" name="Manage Course Test(failed)" parallel="tests">
+    <parameter name="ManageCourseTest" value="Manage Course Test"/>
+    <classes>
+      <class name="main.java.seleniumTest.courseTests.CoursesTest">
+        <methods>
+          <include name="closeWebDriver"/>
+          <include name="init"/>
+          <include name="testClickTitle"/>
+        </methods>
+      </class> <!-- main.java.seleniumTest.courseTests.CoursesTest -->
+    </classes>
+  </test> <!-- Manage Course Test(failed) -->
+</suite> <!-- Failed suite [Selenium tests] -->

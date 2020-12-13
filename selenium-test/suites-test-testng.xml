@@ -1,0 +1,11 @@
+<suite name="Selenium tests" parallel="tests" thread-count="2" >
+    <test name="Manage Course Test">
+        <parameter name="ManageCourseTest" value="Manage Course Test"/>
+        <classes>
+            <class name="main.java.seleniumTest.courseTests.ManageCourseTest" />
+            <class name="main.java.seleniumTest.courseTests.CoursesTest" />
+        </classes>
+    </test>
+
+
+</suite>
