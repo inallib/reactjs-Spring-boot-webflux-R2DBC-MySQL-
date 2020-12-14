@@ -16,8 +16,8 @@ export const ListOfCourse = () => {
       if (data.error)
         alert.show('Course could not be loded!')
       else {
-      setLoadingRequired(false)
-      setCourses(data)
+        setLoadingRequired(false)
+        setCourses(data)
       }
     })
   }
