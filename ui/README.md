@@ -3,4 +3,4 @@
 - start the application by running `npm start`
 
 # Running the tests
-Run `npm test'
+Run `npm test`
