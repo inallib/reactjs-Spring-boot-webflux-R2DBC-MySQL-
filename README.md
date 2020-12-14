@@ -1,6 +1,6 @@
 # reactjs Springboot webflux R2DBC MySQL CRUD With Testing
 
-This repo has four main components
+What to expect! This repo has four main components
 - UI - Its developed with react hooks
 - Backend service - Developed with Webflux and R2DBC 
 - DB - Its Mysql DB
